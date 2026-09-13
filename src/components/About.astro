@@ -1,0 +1,172 @@
+---
+import DevKnights from "../../public/discord_bl0g.jpg";
+import DiscordCommunity from "../../public/logo_batman.jpg";
+---
+
+  <section id="about" class="about reveal">
+    <div class="header">
+      <p class="tiny">PROFILE</p>
+      <h1>SOBRE MÍ</h1>
+    </div>
+
+    <div class="intro">
+      <p>
+        Mi nombre es <strong>Nicolás Gracia</strong>, conocido en internet como
+        <strong> NIZ00LAX</strong>. Desarrollo proyectos completos desde los 13 años y
+        me especializo en la creación de bots, dashboards y comunidades de Discord.
+      </p>
+
+      <p>
+        Me gusta diseñar sistemas bien organizados, interfaces intuitivas y ofrecer una
+        experiencia <strong>user-friendly</strong>. Mi objetivo siempre es que cada
+        detalle esté cuidadosamente construido para conseguir un resultado perfecto.
+      </p>
+    </div>
+
+    <div class="communities">
+      <article class="community-card">
+        <img src={DevKnights.src} alt="DEV-KNIGHTS" class="avatar" />
+
+        <div class="info">
+          <p class="label">DISCORD SERVER</p>
+          <h2>DEV-KNIGHTS</h2>
+        </div>
+      </article>
+
+      <article class="community-card">
+        <img
+          src={DiscordCommunity.src}
+          alt="Discord Forum"
+          class="avatar"
+        />
+
+        <div class="info">
+          <p class="label">BLOG</p>
+          <h2>DISCORD F0RUM</h2>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<style>
+  .about {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 7rem 1.5rem 5rem;
+    font-family: "Cascadia Code", monospace;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .tiny {
+    color: #8b8b8b;
+    letter-spacing: .25em;
+    font-size: .85rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: "Press Start 2P", monospace;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: #fff;
+    margin: 0;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: #b8b8b8;
+    line-height: 1.9;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .intro strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .communities {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .community-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    background: #111;
+    border: 1px solid #262626;
+    padding: 1.5rem 2rem;
+
+    transition: .25s ease;
+  }
+
+  .community-card:hover {
+    transform: translateY(-6px);
+    border-color: #fff;
+    box-shadow: 0 0 30px rgba(236,235,239,.18);
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+
+    filter: grayscale(1);
+    transition: .3s ease;
+    border: 2px solid #333;
+  }
+
+  .community-card:hover .avatar {
+    filter: grayscale(0);
+    border-color: #fff;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+
+  .label {
+    color: #777;
+    font-size: .8rem;
+    letter-spacing: .18em;
+    margin: 0;
+  }
+
+  h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 700px) {
+    .community-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .avatar {
+      width: 95px;
+      height: 95px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+

@@ -1,0 +1,150 @@
+---
+---
+
+<section id="home" class="home reveal">
+  <nav class="navbar">
+    <ul>
+      <li><a href="#tecnologia">Tecnologías</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#discord">Discord</a></li>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#contact">Contacto y Redes</a></li>
+    </ul>
+  </nav>
+
+  <main class="hero">
+    <div class="glass">
+      <h1 class="title">NIZ00LAX</h1>
+
+      <p class="tiny">
+        Discord Developer especializado en bots escalables basados en
+        <strong>TypeScript</strong>.
+      </p>
+    </div>
+  </main>
+</section>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@200..700&display=swap");
+
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #111;
+    color: #fff;
+    font-family: "VT323", monospace;
+  }
+
+  /* ---------- CONTENEDOR ---------- */
+
+  .home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  /* ---------- NAVBAR ---------- */
+
+  .navbar {
+    position: sticky;
+    top: 1.5rem;
+    z-index: 1000;
+
+    background: rgba(34, 34, 34, 0.92);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid #2d2d2d;
+    padding: .7rem;
+  }
+
+  .navbar ul {
+    display: flex;
+    list-style: none;
+    gap: .4rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar a {
+    display: block;
+    color: #cfcfcf;
+    text-decoration: none;
+    padding: .75rem 1rem;
+    font-family: "VT323", monospace;
+    font-size: 1.15rem;
+    transition: background .18s ease, color .18s ease;
+  }
+
+  .navbar a:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    flex: 1;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .glass {
+    width: min(900px, 100%);
+    background: #181818;
+    border: 1px solid rgba(255,255,255,.08);
+    padding: 3.2rem;
+
+    box-shadow:
+      0 0 0 1px #fff,
+      0 0 20px rgba(255,255,255,.7);
+  }
+
+  .title {
+    font-family: "Press Start 2P", monospace;
+    margin: 0;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    line-height: 1.1;
+  }
+
+  .tiny {
+    margin: 1.4rem 0 0;
+    font-family: "Cascadia Code", monospace;
+    color: #b8b8b8;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .tiny strong {
+    color: #5c83c6;
+    font-weight: 600;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 900px) {
+    .navbar ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .glass {
+      padding: 2rem;
+    }
+
+    .title {
+      font-size: 2.2rem;
+    }
+  }
+</style>

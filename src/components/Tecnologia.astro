@@ -1,0 +1,276 @@
+---
+
+const technologies = [
+  {
+    name: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "Node.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "Python",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  {
+    name: "Astro",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg",
+  },
+  {
+    name: "Lua",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg",
+  },
+];
+---
+
+  <section id="tecnologia" class="tech reveal">
+    <div class="header">
+      <p class="tiny">STACK</p>
+      <h1>TECNOLOGÍAS</h1>
+      <p class="description">
+        Herramientas y lenguajes que utilizo para desarrollar aplicaciones,
+        bots, dashboards y proyectos web.
+      </p>
+    </div>
+
+    <div class="mindmap">
+
+      <!-- Líneas del mapa mental -->
+      <svg
+        class="connections"
+        viewBox="0 0 1000 360"
+        preserveAspectRatio="none"
+      >
+        <path d="M100 98 V165" />
+        <path d="M300 98 V165" />
+        <path d="M500 98 V165" />
+        <path d="M700 98 V165" />
+        <path d="M900 98 V165" />
+
+        <!-- Bus horizontal -->
+        <path d="M100 165 H900" />
+
+        <!-- Bajada -->
+        <path d="M500 165 V275" />
+      </svg>
+
+      <!-- Tarjetas superiores -->
+      <div class="grid">
+        {technologies.map((tech) => (
+          <article class="card">
+            <img src={tech.icon} alt={tech.name} loading="lazy" />
+            <h2>{tech.name}</h2>
+          </article>
+        ))}
+      </div>
+
+      <!-- Tarjeta final -->
+      <article class="os-card">
+        <div class="os-icons">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+            alt="Linux"
+          />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg"
+            alt="Windows"
+          />
+        </div>
+
+        <h2>OS DIARIOS</h2>
+      </article>
+
+    </div>
+  </section>
+
+<style>
+  .tech {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 7rem 1.5rem 5rem;
+    font-family: "Cascadia Code", monospace;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .tiny {
+    color: #8b8b8b;
+    letter-spacing: 0.25em;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-family: "Press Start 2P", monospace;
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .description {
+    color: #a3a3a3;
+    max-width: 600px;
+    margin: 1.2rem auto 0;
+    line-height: 1.8;
+  }
+
+  /* ---------- MAPA MENTAL ---------- */
+
+  .mindmap {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .connections {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .connections path {
+    fill: none;
+    stroke: #404040;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 7 8;
+  }
+
+  /* ---------- GRID ---------- */
+
+  .grid {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
+  }
+
+  .card {
+    background: #111111;
+    border: 1px solid #262626;
+    padding: 2rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+
+    transition: 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: #fff;
+    box-shadow: 0 0 30px rgba(236, 235, 239, 0.22);
+  }
+
+  .card img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+
+    filter: grayscale(1) brightness(1.15);
+    transition: 0.25s ease;
+  }
+
+  .card:hover img {
+    filter: grayscale(0);
+  }
+
+  .card h2 {
+    margin: 0;
+    color: #ececec;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* ---------- TARJETA FINAL ---------- */
+
+  .os-card {
+    position: relative;
+    z-index: 1;
+
+    width: 280px;
+    margin: 5.8rem auto 0;
+
+    background: #111111;
+    border: 1px solid #262626;
+    padding: 1.8rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    transition: 0.25s ease;
+  }
+
+  .os-card:hover {
+    transform: translateY(-6px);
+    border-color: #fff;
+    box-shadow: 0 0 30px rgba(236, 235, 239, 0.22);
+  }
+
+  .os-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .os-icons img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+
+    filter: grayscale(1) brightness(1.15);
+    transition: 0.25s ease;
+  }
+
+  .os-card:hover .os-icons img {
+    filter: grayscale(0);
+  }
+
+  .os-card h2 {
+    margin: 0;
+    color: #ececec;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 900px) {
+    .connections {
+      display: none;
+    }
+
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .os-card {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,116 @@
+---
+const { frontmatter } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>NIZ00LAX | Discord Developer</title>
+</head>
+<body>
+    <main class="contenido-markdown">
+        <nav class="navbar">
+            <ul>
+                <li><a href="#tecnologia">Tecnologías</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#discord">Discord</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#contact">Contacto y Redes</a></li>
+            </ul>
+        </nav>
+        <slot /> 
+        <script>
+            const observer = new IntersectionObserver(
+                (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    }
+                });
+                },
+                {
+                threshold: 0.15,
+                }
+            );
+
+            document.querySelectorAll(".reveal").forEach((el) => {
+                observer.observe(el);
+            });
+        </script>
+    </main>
+</body>
+</html>
+
+<style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: #161616;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        filter: blur(8px);
+
+        transition:
+            opacity .8s ease,
+            transform .8s ease,
+            filter .8s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+/* Navbar flotante */
+    .navbar {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 9999;
+
+        background: rgba(34, 34, 34, 0.92);
+        backdrop-filter: blur(12px);
+
+        border: 1px solid #2d2d2d;
+        padding: 0.7rem;
+    }
+
+    .navbar ul {
+        display: flex;
+        gap: 0.4rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
+        color: #cfcfcf;
+        font-family: "VT323", monospace;
+        font-size: 1.15rem;
+        transition: 0.18s ease;
+    }
+
+    .navbar a:hover {
+        background: #fff;
+        color: #000;
+    }
+
+/* Evita que la navbar tape los títulos */
+    section {
+        scroll-margin-top: 110px;
+    }
+</style>
