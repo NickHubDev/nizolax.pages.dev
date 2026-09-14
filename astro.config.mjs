@@ -1,7 +1,5 @@
-import { defineConfig } from "astro/config";
-import cloudflare from "@astrojs/cloudflare";
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-    base: '/',
-    adapter: cloudflare(),
+    output: 'static', // Asegúrate de que esté en static o bórralo (es el defecto)
 });
