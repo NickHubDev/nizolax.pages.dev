@@ -8,9 +8,11 @@
 
       <p class="tiny">
         Discord Developer especializado en bots escalables basados en
-        <strong>TypeScript</strong>.
+        <strong> TypeScript</strong>.
       </p>
     </div>
+    <a href="#contact" class="cta">Solicitar presupuesto
+    </a>
   </main>
 </section>
 
@@ -41,43 +43,6 @@
     gap: 1.5rem;
   }
 
-  /* ---------- NAVBAR ---------- */
-
-  .navbar {
-    position: sticky;
-    top: 1.5rem;
-    z-index: 1000;
-
-    background: rgba(34, 34, 34, 0.92);
-    backdrop-filter: blur(12px);
-
-    border: 1px solid #2d2d2d;
-    padding: .7rem;
-  }
-
-  .navbar ul {
-    display: flex;
-    list-style: none;
-    gap: .4rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  .navbar a {
-    display: block;
-    color: #cfcfcf;
-    text-decoration: none;
-    padding: .75rem 1rem;
-    font-family: "VT323", monospace;
-    font-size: 1.15rem;
-    transition: background .18s ease, color .18s ease;
-  }
-
-  .navbar a:hover {
-    background: #fff;
-    color: #000;
-  }
-
   /* ---------- HERO ---------- */
 
   .hero {
@@ -85,20 +50,25 @@
     width: 100%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+
     text-align: center;
   }
+
+  /* ---------- GLASS ---------- */
 
   .glass {
     width: min(900px, 100%);
     background: #181818;
-    border: 1px solid rgba(255,255,255,.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 3.2rem;
 
     box-shadow:
       0 0 0 1px #fff,
-      0 0 20px rgba(255,255,255,.7);
+      0 0 20px rgba(255, 255, 255, 0.7);
   }
 
   .title {
@@ -121,20 +91,81 @@
     font-weight: 600;
   }
 
+  /* ---------- BOTÓN CTA ---------- */
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 280px;
+    padding: 1rem 2rem;
+
+    background: #111;
+    border: 1px solid #fff;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-family: "Cascadia Code", monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .cta:hover {
+    background: #fff;
+    color: #111;
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+  }
+
+  .cta:active {
+    transform: translateY(-1px);
+  }
+
   /* ---------- RESPONSIVE ---------- */
 
   @media (max-width: 900px) {
-    .navbar ul {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
     .glass {
       padding: 2rem;
     }
 
     .title {
       font-size: 2.2rem;
+    }
+
+    .cta {
+      width: 100%;
+      max-width: 340px;
+      min-width: unset;
+      font-size: 0.9rem;
+      padding: 0.95rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .home {
+      padding: 1.25rem;
+    }
+
+    .glass {
+      padding: 1.6rem;
+    }
+
+    .tiny {
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      letter-spacing: 0.05em;
     }
   }
 </style>

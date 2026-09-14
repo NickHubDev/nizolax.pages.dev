@@ -1,70 +1,185 @@
+<section id="contact" class="contact reveal">
+  <!-- CABECERA -->
+  <div class="header">
+    <p class="tiny">SOCIAL</p>
+    <h1>CONTACTO Y REDES</h1>
+    <p class="description">
+      Puedes encontrar mi contenido, contactar conmigo o solicitar el desarrollo
+      de un proyecto personalizado.
+    </p>
+  </div>
 
-  <section id="contact" class="contact reveal">
-    <div class="header">
-      <p class="tiny">SOCIAL</p>
-      <h1>CONTACTO Y REDES</h1>
-      <p class="description">
-        Puedes encontrar mi contenido, contactar conmigo o seguir el desarrollo de
-        mis proyectos desde cualquiera de estas plataformas.
+  <!-- PANEL 1 · FORMULARIO -->
+  <div class="panel form-panel">
+    <div class="form-header">
+      <p class="tiny-form">SERVICIOS</p>
+      <h2>Solicitar presupuesto</h2>
+      <p>
+        Rellena el formulario y recibiré tu solicitud directamente en mi servidor
+        de Discord.
       </p>
     </div>
 
-    <div class="panel">
-
-      <!-- TikTok -->
-      <a
-        href="https://www.tiktok.com/@nizolax_pro"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="row"
-      >
-        <div class="left">
-          <span class="icon">♪</span>
-          <div>
-            <p class="label">TIKTOK</p>
-            <h2>@NIZ00LAX</h2>
-          </div>
-        </div>
-        <span class="arrow">↗</span>
-      </a>
-
-      <!-- YouTube -->
-      <a
-        href="https://youtube.com/@nizolax-pro"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="row"
-      >
-        <div class="left">
-          <span class="icon">▶</span>
-          <div>
-            <p class="label">YOUTUBE</p>
-            <h2>@NIZ00LAX</h2>
-          </div>
-        </div>
-        <span class="arrow">↗</span>
-      </a>
-
-      <!-- Correo + GitHub -->
-      <div class="bottom">
-        <a href="nizolax.homehub@gmail.com" class="card">
-          <p class="label">EMAIL</p>
-          <h3>nizolax.homehub@gmail.com</h3>
-        </a>
-
-        <a
-          href="https://github.com/NickHubDev"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card"
-        >
-          <p class="label">GITHUB</p>
-          <h3>NIZ00LAX</h3>
-        </a>
+    <form
+      id="contactForm"
+      class="contact-form"
+      action="/api/contact"
+      method="POST"
+    >
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          maxlength="40"
+          placeholder="Nicolas Gracia"
+        />
       </div>
 
+      <div class="two-columns">
+        <div class="field">
+          <label for="email">Correo</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            maxlength="80"
+            placeholder="correo@ejemplo.com"
+          />
+        </div>
+
+        <div class="field">
+          <label for="phone">Teléfono</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            maxlength="20"
+            placeholder="+34 600 000 000"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Cuéntame tu proyecto</label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          minlength="20"
+          maxlength="1000"
+          rows="6"
+          placeholder="Necesito un bot de Discord con tickets, economía y dashboard..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        ENVIAR SOLICITUD
+      </button>
+
+      <p id="status" class="status"></p>
+    </form>
+  </div>
+
+  <!-- PANEL 2 · REDES -->
+  <div class="panel social-panel">
+    <div class="form-header">
+      <p class="tiny-form">REDES</p>
+      <h2>También puedes encontrarme aquí</h2>
+      <p>
+        Sígueme en redes o contacta directamente por correo o GitHub.
+      </p>
     </div>
-  </section>
+
+    <a
+      href="https://www.tiktok.com/@nizolax_pro"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="row"
+    >
+      <div class="left">
+        <span class="icon">♪</span>
+        <div>
+          <p class="label">TIKTOK</p>
+          <h2>@NIZ00LAX</h2>
+        </div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a
+      href="https://youtube.com/@nizolax-pro"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="row"
+    >
+      <div class="left">
+        <span class="icon">▶</span>
+        <div>
+          <p class="label">YOUTUBE</p>
+          <h2>@NIZ00LAX</h2>
+        </div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <div class="bottom">
+      <a href="mailto:nizolax.homehub@gmail.com" class="card">
+        <p class="label">EMAIL</p>
+        <h3>nizolax.homehub@gmail.com</h3>
+      </a>
+
+      <a
+        href="https://github.com/NickHubDev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <p class="label">GITHUB</p>
+        <h3>NIZ00LAX</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("status");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    status.textContent = "Enviando solicitud...";
+    status.style.color = "#888";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        status.textContent = "✓ Solicitud enviada correctamente.";
+        status.style.color = "#8fffa6";
+        form.reset();
+      } else {
+        status.textContent = data.error || "Ha ocurrido un error.";
+        status.style.color = "#ff9a9a";
+      }
+    } catch {
+      status.textContent = "No se pudo conectar con el servidor.";
+      status.style.color = "#ff9a9a";
+    }
+  });
+</script>
 
 <style>
   .contact {
@@ -100,8 +215,6 @@
     line-height: 1.8;
   }
 
-  /* Panel principal */
-
   .panel {
     background: #111;
     border: 1px solid #262626;
@@ -117,14 +230,14 @@
     align-items: center;
     text-decoration: none;
     color: inherit;
-
     padding: 1.25rem;
     border: 1px solid #262626;
     background: #0d0d0d;
     transition: .25s ease;
   }
 
-  .row:hover {
+  .row:hover,
+  .card:hover {
     border-color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 0 25px rgba(236,235,239,.15);
@@ -161,7 +274,6 @@
 
   .arrow {
     color: #777;
-    font-size: 1.2rem;
     transition: .25s;
   }
 
@@ -170,30 +282,20 @@
     transform: translate(3px,-3px);
   }
 
-  /* Parte inferior */
-
   .bottom {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-top: .5rem;
+    margin-bottom: 1rem;
   }
 
   .card {
     text-decoration: none;
     color: inherit;
-
     border: 1px solid #262626;
     background: #0d0d0d;
     padding: 1.5rem;
-
     transition: .25s ease;
-  }
-
-  .card:hover {
-    border-color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(236,235,239,.15);
   }
 
   h3 {
@@ -203,8 +305,110 @@
     word-break: break-word;
   }
 
+  /* ---------- FORMULARIO ---------- */
+
+  .form-section {
+    margin-top: 1rem;
+    border-top: 1px solid #262626;
+    padding-top: 2rem;
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .tiny-form {
+    color: #777;
+    letter-spacing: .2em;
+    font-size: .8rem;
+    margin-bottom: .8rem;
+  }
+
+  .form-header h2 {
+    font-family: "Press Start 2P", monospace;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-header p {
+    color: #999;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+
+  .field label {
+    color: #bbb;
+    font-size: .9rem;
+  }
+
+  .field input,
+  .field textarea {
+    background: #0d0d0d;
+    border: 1px solid #262626;
+    color: #fff;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: .95rem;
+    outline: none;
+    resize: vertical;
+    transition: .2s ease;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255,255,255,.08);
+  }
+
+  .submit-btn {
+    margin-top: .5rem;
+    background: #111;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 1rem;
+    font-family: "Cascadia Code", monospace;
+    letter-spacing: .08em;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+
+  .submit-btn:hover {
+    background: #fff;
+    color: #111;
+    transform: translateY(-2px);
+  }
+
+  .status {
+    text-align: center;
+    font-size: .9rem;
+    min-height: 20px;
+    margin: 0;
+    color: #777;
+  }
+
   @media (max-width: 700px) {
-    .bottom {
+    .bottom,
+    .two-columns {
       grid-template-columns: 1fr;
     }
 
@@ -212,6 +416,10 @@
       align-items: flex-start;
       gap: 1rem;
     }
+
+    .form-header h2 {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
   }
 </style>
-
